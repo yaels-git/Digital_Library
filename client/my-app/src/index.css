@@ -1,0 +1,41 @@
+/* טעינת Tailwind v4 */
+@import "tailwindcss";
+
+/* RTL אופציונלי */
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* מחלקות העיצוב שהשתמשנו בהן באפליקציה */
+.container-app { @apply mx-auto max-w-6xl p-4 md:p-8; }
+
+.hero { 
+  @apply rounded-3xl p-6 md:p-8 text-white shadow-lg;
+  background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 50%, #d946ef 100%);
+}
+
+.card       { @apply rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md; }
+.card-content { @apply p-5; }
+
+.badge { @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium; }
+.badge-brand { @apply bg-indigo-600 text-white; }
+.badge-secondary { @apply bg-gray-200 text-gray-800; }
+.badge-outline { @apply border border-gray-300 text-gray-800; }
+
+.btn { 
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition
+         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+.btn-primary { @apply bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm; }
+.btn-outline { @apply bg-white text-gray-900 border border-gray-300 hover:bg-gray-50; }
+
+.input { 
+  @apply w-full rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm shadow-sm placeholder:text-gray-400
+         focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition;
+}
+
+.tabs { @apply grid w-full grid-cols-2 rounded-2xl border bg-white p-1 shadow-sm; }
+.tab-btn { @apply px-3 py-2 text-sm rounded-xl transition; }
+.tab-btn-active { @apply bg-gray-900 text-white shadow; }

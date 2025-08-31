@@ -1,0 +1,72 @@
+{
+  "info": {
+    "name": "Digital Library API",
+    "_postman_id": "1234-5678-90ab-cdef",
+    "description": "בדיקות למערכת ספריה דיגיטלית",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Books - Create",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Harry Potter\",\n  \"author\": \"J.K. Rowling\",\n  \"pdfUrl\": \"http://example.com/harry.pdf\"\n}"
+        },
+        "url": { "raw": "http://localhost:3000/books", "host": ["http://localhost"], "port": "3000", "path": ["books"] }
+      }
+    },
+    {
+      "name": "Books - Get All",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:3000/books", "host": ["http://localhost"], "port": "3000", "path": ["books"] } }
+    },
+    {
+      "name": "Loans - Borrow",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "x-user-id", "value": "1" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"bookId\": 1,\n  \"days\": 3\n}"
+        },
+        "url": { "raw": "http://localhost:3000/loans/borrow", "host": ["http://localhost"], "port": "3000", "path": ["loans", "borrow"] }
+      }
+    },
+    {
+      "name": "Loans - Return",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "x-user-id", "value": "1" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"loanId\": 1\n}"
+        },
+        "url": { "raw": "http://localhost:3000/loans/return", "host": ["http://localhost"], "port": "3000", "path": ["loans", "return"] }
+      }
+    },
+    {
+      "name": "Loans - My Loans",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "x-user-id", "value": "1" }],
+        "url": { "raw": "http://localhost:3000/loans/my", "host": ["http://localhost"], "port": "3000", "path": ["loans", "my"] }
+      }
+    },
+    {
+      "name": "Stats - Top Books",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:3000/stats/top-books", "host": ["http://localhost"], "port": "3000", "path": ["stats", "top-books"] } }
+    },
+    {
+      "name": "Logs - Get",
+      "request": { "method": "GET", "url": { "raw": "http://localhost:3000/logs", "host": ["http://localhost"], "port": "3000", "path": ["logs"] } }
+    }
+  ]
+}
